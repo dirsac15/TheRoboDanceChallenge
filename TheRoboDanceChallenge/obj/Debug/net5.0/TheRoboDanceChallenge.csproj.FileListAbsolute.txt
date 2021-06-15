@@ -27,3 +27,10 @@ C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\obj\Debug\net5.0\TheRobo
 C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\obj\Debug\net5.0\ref\TheRoboDanceChallenge.dll
 C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\obj\Debug\net5.0\TheRoboDanceChallenge.pdb
 C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\obj\Debug\net5.0\TheRoboDanceChallenge.genruntimeconfig.cache
+C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\bin\Debug\net5.0\Npgsql.dll
+C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\ACP\work\TheRoboDanceChallenge\TheRoboDanceChallenge\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll

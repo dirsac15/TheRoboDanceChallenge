@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TheRoboDanceChallenge.Database;
 using TheRoboDanceChallenge.Models;
 
 namespace TheRoboDanceChallenge.Controllers
@@ -12,11 +13,18 @@ namespace TheRoboDanceChallenge.Controllers
     [Route("[controller]")]
     public class RobotController : ControllerBase
     {
+        private readonly IDataAccessProvider _dataAccessProvider;
+
+        public RobotController(IDataAccessProvider dataAccessProvider)
+        {
+            _dataAccessProvider = dataAccessProvider;
+        }
+
         [HttpGet]
         [Route("getRobots")]
         public IEnumerable<Robot> GetRobots()
         {
-            return (IEnumerable<Robot>)Ok();
+            return _dataAccessProvider.GetRobots();
         }
 
         [HttpGet]
