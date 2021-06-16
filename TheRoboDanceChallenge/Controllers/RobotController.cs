@@ -29,23 +29,101 @@ namespace TheRoboDanceChallenge.Controllers
 
         [HttpGet]
         [Route("getRobotById")]
-        public IEnumerable<Robot> GetRobotById(int id)
+        public ActionResult<Robot> GetRobotById(int id)
         {
-            return (IEnumerable<Robot>)Ok();
+            try
+            {
+                return _dataAccessProvider.GetRobotById(id);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+            
         }
 
         [HttpPost]
         [Route("createRobot")]
-        public IEnumerable<Robot> CreateRobot(string name, string powermove, int experience)
+        public ActionResult<Robot> CreateRobot(string name, string powermove, int experience)
         {
-            return (IEnumerable<Robot>)Ok();
+            try
+            {
+                var robot = new Robot()
+                {
+                    Name = name,
+                    Powermove = powermove,
+                    Experience = experience,
+                    OutOfOrder = false,
+                    Avatar = "https://robohash.org/" + name.Replace(" ", "-") + ".png"
+                };
+                _dataAccessProvider.AddRobot(robot);
+                return robot;
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+            
         }
 
-        [HttpPost]
+        [HttpPatch]
         [Route("editRobot")]
-        public IEnumerable<Robot> EditRobot(int id)
+        public ActionResult<Robot> EditRobot(Robot robot)
         {
-            return (IEnumerable<Robot>)Ok();
+            try
+            {
+                _dataAccessProvider.UpdateRobot(robot);
+                return robot;
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        [Route("battle")]
+        public ActionResult<String> Battle(int id1, int id2)
+        {
+            try
+            {
+                var robot1 = _dataAccessProvider.GetRobotById(id1);
+                var robot2 = _dataAccessProvider.GetRobotById(id2);
+
+                var battleResult = robot1.Experience - robot2.Experience;
+
+                if (battleResult == 0)
+                {
+                    return "Draw!";
+                }
+
+                if (battleResult > 0)
+                {
+                    return robot1.Name + " wins the battle!";
+                }
+
+                return robot2.Name + " wins the battle!";
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }     
+
+        [HttpDelete]
+        [Route("deleteRobot")]
+        public IActionResult DeleteRobot(int id)
+        {
+            try
+            {
+                _dataAccessProvider.DeleteRobot(id);
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+            
         }
     }
 }
